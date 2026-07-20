@@ -1,0 +1,35 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
+
+  <script type="text/babel">
+    function SayHello({ firstName, lastName }) {
+      return (
+        <div>
+          Hello {firstName} {lastName}
+        </div>
+      );
+    }
+
+    // const propTypes = {
+    //   string(props, propName, componentName) {
+    //     if (typeof props[propName] !== 'string') {
+    //       return new Error(
+    //         `Hey, the ${componentName} needs the ${propName} to be a string, but you passed ${props[propName]} in ${componentName}`,
+    //       );
+    //     }
+    //   },
+    // };
+
+    SayHello.propTypes = {
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+    };
+
+    const element = <SayHello firstName={false} />;
+    ReactDOM.render(element, document.getElementById('root'));
+  </script>
+</body>
